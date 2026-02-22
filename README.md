@@ -96,46 +96,73 @@ The upstream PIE README and docs list typical Debian/Ubuntu packages (`gcc`, `ma
 
 ## Using PIE with this repository
 
-**A) Install directly from VCS (recommended for learning)**
+Since this package is published on Packagist, you normally do not need to register a VCS repository.
 
-Register the repository as a PIE source, then build/install by Composer package name.
 
+**A) Install from Packagist (recommended)**
 
 ```
-# Add this Git repository as a PIE repository for your target PHP
-pie repository:add vcs https://github.com/masakielastic/php-ext-hello-rust
-
-# Build only (compiles into PIE's working directory)
-pie build masakielastic/php-ext-hello-rust
-
-# Install (downloads/builds if needed, then installs into your PHP)
 pie install masakielastic/php-ext-hello-rust
 ```
 
-Remove the repository registration later:
+To build only:
 
 ```
-pie repository:remove https://github.com/masakielastic/php-ext-hello-rust
+pie build masakielastic/php-ext-hello-rust
 ```
 
-**B) Install from a local checkout (fast iteration)**
+That’s all.
+PIE will fetch the package metadata from Packagist and download the tagged release archive automatically.
 
-Clone and work locally:
+---
+
+**B) Install from a local checkout (development / fast iteration)**
+
+
 
 ```
 git clone https://github.com/masakielastic/php-ext-hello-rust
 cd php-ext-hello-rust
 
-# Register local path as a PIE repository
 pie repository:add path "$PWD"
 
-# Then build/install by package name
 pie build masakielastic/php-ext-hello-rust
 pie install masakielastic/php-ext-hello-rust
 ```
 
----
+Remove the local repository when done:
 
+```
+pie repository:remove "$PWD"
+```
+
+**C) Install directly from VCS (advanced / debugging only)**
+
+Only needed if:
+
+ * testing an unreleased branch
+ * experimenting before tagging
+ * Packagist metadata is not yet updated
+
+
+```
+pie repository:add vcs https://github.com/masakielastic/php-ext-hello-rust
+pie build masakielastic/php-ext-hello-rust
+pie install masakielastic/php-ext-hello-rust
+```
+
+Remove when finished:
+
+```
+pie repository:remove https://github.com/masakielastic/php-ext-hello-rust
+```
+
+**Why VCS is no longer required**
+
+Previously this repository had to be registered as a VCS source.
+Now that it is published on Packagist, PIE can discover it automatically via Composer metadata.
+
+---
 
 ## Enabling / verifying the extension
 
@@ -202,7 +229,7 @@ PHP extensions conventionally load as `hello_rust.so`. This repository normalize
 
 ## Publishing plan (Packagist / extensions list)
 
-This repository is intended to become a PIE-compatible package discoverable via Packagist “extensions”.
+This repository is published on Packagist and can be installed directly via PIE.
 
 Release flow (typical):
 
