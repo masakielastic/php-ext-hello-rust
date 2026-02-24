@@ -1,4 +1,4 @@
-# php-ext-hello-rust
+# hello-rust
 
 Educational sample of a **PHP extension written in Rust** using **ext-php-rs**, packaged to be installable with **PIE (PHP Installer for Extensions)**.
 
@@ -102,13 +102,13 @@ Since this package is published on Packagist, you normally do not need to regist
 **A) Install from Packagist (recommended)**
 
 ```
-pie install masakielastic/php-ext-hello-rust
+pie install masakielastic/hello-rust
 ```
 
 To build only:
 
 ```
-pie build masakielastic/php-ext-hello-rust
+pie build masakielastic/hello-rust
 ```
 
 That’s all.
@@ -126,8 +126,8 @@ cd php-ext-hello-rust
 
 pie repository:add path "$PWD"
 
-pie build masakielastic/php-ext-hello-rust
-pie install masakielastic/php-ext-hello-rust
+pie build masakielastic/hello-rust
+pie install masakielastic/hello-rust
 ```
 
 Remove the local repository when done:
@@ -147,8 +147,8 @@ Only needed if:
 
 ```
 pie repository:add vcs https://github.com/masakielastic/php-ext-hello-rust
-pie build masakielastic/php-ext-hello-rust
-pie install masakielastic/php-ext-hello-rust
+pie build masakielastic/hello-rust
+pie install masakielastic/hello-rust
 ```
 
 Remove when finished:
@@ -189,7 +189,7 @@ extension=hello_rust
 Depending on your PIE version, you may be able to uninstall with:
 
 ```
-pie uninstall masakielastic/php-ext-hello-rust
+pie uninstall masakielastic/hello-rust
 ```
 
 If your PIE build does not support `uninstall`, remove it manually:
