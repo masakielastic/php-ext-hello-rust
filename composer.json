@@ -1,5 +1,5 @@
 {
-  "name": "masakielastic/php-ext-hello-rust",
+  "name": "masakielastic/hello-rust",
   "description": "Hello World PHP extension written in Rust (ext-php-rs)",
   "version": "0.1.1",
   "type": "php-ext",
